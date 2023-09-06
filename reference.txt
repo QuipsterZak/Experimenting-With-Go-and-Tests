@@ -1,0 +1,3 @@
+Go Environment:
+Modules solves problems related to dependency management, version selection and reproducible builds, aswell as running Go code outside of `GOPATH`.
+command: `go mod init`
