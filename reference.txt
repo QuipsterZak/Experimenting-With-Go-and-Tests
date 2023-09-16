@@ -15,3 +15,26 @@ the `f` in t.Errorf stands for format which allows to build a string with values
 Go doc can be launched locally by running `godoc -http :8000`, packages location is in localhost:8000/pkg
 Check: http://localhost:8000/pkg/testing/
 if go doc is not available(newer versions) we can install it with `go install golang.org/x/tools/cmd/godoc@latest`
+
+Subtests are useful for describing different scenarios.
+Refactoring using a helper function to validate messages
+
+t.Helper() track down problems easier by reporting the line number in our function call rather than inside the test helper.
+
+Recap:
+1-Write a test
+2-Make the compiler pass
+3-Run the test, see that it fails and check the error message is meaningful
+4-Write enough code to make the test pass
+5-Refactor
+6-Don't break the state of flow
+
+When dealing with many `if` statements, use (refactor with) switch statement instead for better readability
+
+in the function greetingPrefix(...)(prefix string), we made a named return value, will be assigned to 0 or "", use return instead of return prefix.
+Public functions start wiht capital letter, private fcts start with lowercase
+
+TDD process:
+- Write a failing test to see where it fails
+- Writing smallest amount of code to make it pass
+- Refactor
