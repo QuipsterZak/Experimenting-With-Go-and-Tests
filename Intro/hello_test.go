@@ -6,15 +6,29 @@ import (
 
 func TestHello(t *testing.T) { // t *testing.T being a function signature, t being a *testing.T pointer, which report test failure.
 	t.Run("saying hello to people", func(t *testing.T) {
-		got := Hello("Zak")
+		got := Hello("Zak", "")
 		want := "Hello, Zak"
 
 		assertCorrectMessage(t, got, want)
 	})
 
 	t.Run("say 'Hello, World' when an empty string", func(t *testing.T) {
-		got := Hello("")
+		got := Hello("", "")
 		want := "Hello, World"
+
+		assertCorrectMessage(t, got, want)
+	})
+
+	t.Run("in Spanish", func(t *testing.T) {
+		got := Hello("Elodie", "Spanish")
+		want := "Hola, Elodie"
+
+		assertCorrectMessage(t, got, want)
+	})
+
+	t.Run("in French", func(t *testing.T) {
+		got := Hello("monde", "French")
+		want := "Bonjour, monde"
 
 		assertCorrectMessage(t, got, want)
 	})
