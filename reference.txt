@@ -46,3 +46,12 @@ go test -bench=. (powershell: go test -bench=".")
 
 When defining benchmark functions, they always start with `Benchmark`
 Benchmarking calculates the number of iterations/s, the avg time per iteration...
+
+Array allow to store multiple elements of the same type.
+Iteration over arrays is very common.
+
+_ discard irrelevant values, example: ` for _, number := range numbers {...}
+
+Go does not let us use equality operators with slices(you could write a function to iterate over each got and want)
+instead use `reflect.DeepEqual`, although it is not typesafe, means you may compare a slice to a string and the test will compile.
+slice[low:high] similar to python
